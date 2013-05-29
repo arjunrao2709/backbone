@@ -731,6 +731,10 @@
       // Trigger `add` events.
       for (i = 0, l = toAdd.length; i < l; i++) {
         (model = toAdd[i]).trigger('add', model, this, options);
+        //author : Arjun Rao, to get an updated event on a collection which gets new models added
+        if(i+1 == l){
+          this.trigger('updated',add, this,options);
+        }
       }
 
       // Trigger `sort` if the collection was sorted.
